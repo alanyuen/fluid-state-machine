@@ -8,7 +8,7 @@ namespace CleverCrow.Fluid.FSMs {
     public class Fsm : IFsm {
         private readonly Dictionary<Enum, IState> _stateDic = new Dictionary<Enum, IState>();
         
-        public GameObject Owner { get; }
+        public object Owner { get; }
         public IState CurrentState { get; private set; }
         public IState DefaultState { get; set; }
         public UnityEvent EventExit { get; } = new UnityEvent();

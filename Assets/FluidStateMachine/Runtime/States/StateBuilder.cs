@@ -3,15 +3,9 @@ using System.Collections.Generic;
 
 namespace CleverCrow.Fluid.FSMs {
     public class StateBuilder {
-        private readonly List<ITransition> _transitions = new List<ITransition>();
         private readonly List<IAction> _actions = new List<IAction>();
 
         public Enum Id { get; set; }
-
-        public StateBuilder SetTransition (Enum id) {
-            _transitions.Add(new Transition(id));
-            return this;
-        }
 
         public StateBuilder SetAnimatorTrigger (string name) {
             return AddAction(new ActionSetAnimatorTrigger(name));

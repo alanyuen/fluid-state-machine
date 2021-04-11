@@ -5,7 +5,8 @@ namespace CleverCrow.Fluid.FSMs {
         protected Animator _animator;
 
         protected override void OnInit () {
-            _animator = ParentState.ParentFsm.Owner.GetComponent<Animator>();
+            var obj = ParentState.ParentFsm.Owner as GameObject;
+            _animator = obj.GetComponent<Animator>();
         }
     }
 }

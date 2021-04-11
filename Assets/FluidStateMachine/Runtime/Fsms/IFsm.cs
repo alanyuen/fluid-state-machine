@@ -7,7 +7,7 @@ namespace CleverCrow.Fluid.FSMs {
         IState GetState (Enum id);
         void AddState (IState state);
         void SetState (Enum id);
-        GameObject Owner { get; }
+        object Owner { get; }
         IState CurrentState { get; }
         IState DefaultState { get; set; }
         UnityEvent EventExit { get; }

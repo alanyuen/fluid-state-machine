@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace CleverCrow.Fluid.FSMs {
     public abstract class ActionTriggerBase : ActionBase {
@@ -21,9 +22,11 @@ namespace CleverCrow.Fluid.FSMs {
         }
 
         public void PopulateMonitor () {
-            if (_monitor == null) {
-                _monitor = ParentState.ParentFsm.Owner.GetComponent<ITriggerMonitor>() 
-                          ?? ParentState.ParentFsm.Owner.AddComponent<ActionTriggerMonitor>();
+            if (_monitor == null)
+            {
+                var obj = ParentState.ParentFsm.Owner as GameObject;
+                _monitor = obj.GetComponent<ITriggerMonitor>() 
+                          ?? obj.AddComponent<ActionTriggerMonitor>();
             }
         }
         
