@@ -1,3 +1,5 @@
+using System;
+
 namespace CleverCrow.Fluid.FSMs {
     public interface IAction {
         string Name { get; }
@@ -6,6 +8,6 @@ namespace CleverCrow.Fluid.FSMs {
         void Update ();
         void Enter ();
         void Exit ();
-        void Transition (string id);
+        void Transition (Enum id);
     }
 }

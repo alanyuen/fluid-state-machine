@@ -7,11 +7,9 @@ namespace CleverCrow.Fluid.FSMs {
         Enum Id { get; }
         List<IAction> Actions { get; }
         IFsm ParentFsm { get; }
-
-        ITransition GetTransition (string name);
         void Enter ();
         void Exit ();
         void Update ();
-        void Transition (string id);
+        void Transition (Enum id);
     }
 }

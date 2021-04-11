@@ -1,3 +1,5 @@
+using System;
+
 namespace CleverCrow.Fluid.FSMs {
     public abstract class ActionBase : IAction {
         private bool _init;
@@ -31,7 +33,7 @@ namespace CleverCrow.Fluid.FSMs {
             OnExit();
         }
 
-        public void Transition (string id) {
+        public void Transition (Enum id) {
             ParentState.Transition(id);
         }
 

@@ -1,15 +1,17 @@
+using System;
+
 namespace CleverCrow.Fluid.FSMs {
     /// <summary>
     /// Run a nested FSM. Triggers exit transition when nested FSM triggers an Exit event.
     /// </summary>
     public class ActionRunFsm : ActionBase {
         private IFsm _fsm;
-        private string _exitTransition;
+        private Enum _exitTransition;
         private bool _triggerExit;
         
         public override string Name => "Run FSM";
 
-        public ActionRunFsm (string exitTransition, IFsm fsm) {
+        public ActionRunFsm (Enum exitTransition, IFsm fsm) {
             _fsm = fsm;
             _exitTransition = exitTransition;
         }

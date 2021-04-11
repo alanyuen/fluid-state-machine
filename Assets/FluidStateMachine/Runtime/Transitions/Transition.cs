@@ -2,11 +2,10 @@ using System;
 
 namespace CleverCrow.Fluid.FSMs {
     public class Transition : ITransition {
-        public string Name { get; }
+        public string Name => Target.ToString();
         public Enum Target { get; }
         
-        public Transition (string name, Enum target) {
-            Name = name;
+        public Transition (Enum target) {
             Target = target;
         }
     }

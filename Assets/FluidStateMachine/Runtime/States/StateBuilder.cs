@@ -8,8 +8,8 @@ namespace CleverCrow.Fluid.FSMs {
 
         public Enum Id { get; set; }
 
-        public StateBuilder SetTransition (string change, Enum id) {
-            _transitions.Add(new Transition(change, id));
+        public StateBuilder SetTransition (Enum id) {
+            _transitions.Add(new Transition(id));
             return this;
         }
 
@@ -89,7 +89,7 @@ namespace CleverCrow.Fluid.FSMs {
             });
         }
 
-        public StateBuilder RunFsm (string exitTransition, IFsm fsm) {
+        public StateBuilder RunFsm (Enum exitTransition, IFsm fsm) {
             return AddAction(new ActionRunFsm(exitTransition, fsm));
         }
 
@@ -104,10 +104,6 @@ namespace CleverCrow.Fluid.FSMs {
 
         public IState Build (IFsm fsm) {
             var state = new State(fsm, Id);
-
-            foreach (var transition in _transitions) {
-                state.AddTransition(transition);
-            }
 
             foreach (var action in _actions) {
                 action.ParentState = state;
